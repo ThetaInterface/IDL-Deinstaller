@@ -8,7 +8,7 @@ namespace Deinstaller;
 [SupportedOSPlatform("windows")]
 public static class Program
 {
-    private static readonly string _appName = "WSP";
+    private static readonly string _appName = string.Empty;
 
     public static void Main()
     {
