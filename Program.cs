@@ -8,7 +8,7 @@ namespace Deinstaller;
 [SupportedOSPlatform("windows")]
 public static class Program
 {
-    private static readonly string _appName = string.Empty;
+    private static readonly string _appName = "AikaAI";
 
     public static void Main()
     {
@@ -35,17 +35,18 @@ public static class Program
             rmdir /s /q ""{path}""
             del ""%~f0""
             ";
-
+ 
         File.WriteAllText(batFile, batContent);
         
         ProcessStartInfo psi = new ()
         {
             FileName = batFile,
-            CreateNoWindow = true,
-            UseShellExecute = false
+            Verb = "runas",
+            UseShellExecute = true,
+            CreateNoWindow = true
         };
         Process.Start(psi);
-
+ 
         Environment.Exit(0);
     }
 }
